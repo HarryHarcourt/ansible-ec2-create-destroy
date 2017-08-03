@@ -1,0 +1,9 @@
+---
+# This Playbook destroys an EC2 instance!
+
+- hosts: SIC_Demo
+  tags: destroy
+
+  tasks:
+  # ansible-playbook -l all main.yml -i ansible/hosts --tags destroy
+  - include: tasks/ec2_destroy.yml

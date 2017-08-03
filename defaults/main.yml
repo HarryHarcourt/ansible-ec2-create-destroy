@@ -1,0 +1,18 @@
+---
+# defaults file for ansible-role-ec2
+
+site:
+  name: SIC_Demo
+  environment: Development
+
+ansible_role_ec2:
+  instance_type: t2.micro
+  security_group: "{{ site.environment }}-{{ site.name }}"
+  # as sourced from https://cloud-images.ubuntu.com/locator/ec2/
+  image: ami-6f68cf0f # RHEL used for Ansible Master
+  tags_purpose: WebServer
+  image_user: ec2-user
+  region: us-west-2
+  keypair: BenWright
+  private_key: ~/.ssh/id_rsa
+  count: 1
